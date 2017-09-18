@@ -109,7 +109,7 @@ C:
 
 In this example we want to map all the local folders under **C:\Work\campaigns\** to the same name folders under RSYS folder **contentlibrary\2017**.
 
-So, our RSYS _root_ folder will be: **2017** (as we exclude _contentlibrary_ since it will be automaticly added by the tool).
+So, our RSYS _root_ folder will be: **contentlibrary/2017**.
 
 1. Create a **orsys.json** file on **C:\Work\campaigns**.
 2. Add this code:
@@ -124,3 +124,8 @@ So, our RSYS _root_ folder will be: **2017** (as we exclude _contentlibrary_ sin
 5. Click on **Responsys\Edit**.
 6. A new tab will open on the default browser with the URL: https://interact2.responsys.net/interact/formcab/FileEdit?uid=contentlibrary/2017/campaign1/^shell.htm
 
+
+
+## Requirements
+
+- Node.js 6.11+
