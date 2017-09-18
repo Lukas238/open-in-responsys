@@ -1,0 +1,20 @@
+{
+  "name": "open-in-rsys",
+  "version": "1.0.0",
+  "description": "",
+  "main": "orsys.js",
+  "scripts": {
+    "postinstall": "node postinstall.js",
+    "preuninstall": "node preuninstall.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "preferGlobal": true,
+  "bin": {
+    "orsys": "./orsys.js"
+  },
+  "dependencies": {
+    "commander": "^2.11.0",
+    "open": "0.0.5"
+  }
+}
