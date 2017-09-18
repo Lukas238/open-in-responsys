@@ -3,7 +3,7 @@
 var isWin = /^win/.test(process.platform);
 if( !isWin ) return;
 
-const { exec } = require('child_process');
+var exec = require('child_process').exec;
 
 console.log('Removing contextual menus...');
 
