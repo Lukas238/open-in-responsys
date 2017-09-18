@@ -1,13 +1,29 @@
 {
-  "name": "open-in-rsys",
+  "name": "orsys",
   "version": "1.0.0",
-  "description": "",
+  "description": "CLI node app that let you to open an online htm/html file in Responsys editor or view window using a local file as path map.",
+  "keywords": [
+    "node, windows, cli, contextual menu"
+  ],
   "main": "orsys.js",
   "scripts": {
     "postinstall": "node postinstall.js",
     "preuninstall": "node preuninstall.js"
   },
-  "author": "",
+  "author": [
+    {
+      "name": "Lucas Dasso",
+      "email": "Dasso.Lucas@c238.com.ar",
+      "web": "http://www.C238.com.ar/"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:Lukas238/orsys.git"
+    }
+  ],
+  "homepage": "https://github.com/Lukas238/orsys"
   "license": "ISC",
   "preferGlobal": true,
   "bin": {
