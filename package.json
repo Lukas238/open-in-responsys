@@ -23,7 +23,7 @@
       "url": "git@github.com:Lukas238/orsys.git"
     }
   ],
-  "homepage": "https://github.com/Lukas238/orsys"
+  "homepage": "https://github.com/Lukas238/orsys",
   "license": "ISC",
   "preferGlobal": true,
   "bin": {
