@@ -115,7 +115,7 @@ So, our RSYS _root_ folder will be: **contentlibrary/2017**.
 2. Add this code:
 	```
 	{
-		"root" : "2017"
+		"root" : "contentlibrary/2017"
 	}
 	```
 
