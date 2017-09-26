@@ -83,10 +83,12 @@ function writeConfigFile(){
 
 function contextMenu(add){
 	var exec = require('child_process').exec;
+	var script_path = path.dirname(require.main.filename);
 	if(add){
-		exec('cmd /c orsys_menu_add.reg');
+		// console.log(path.dirname(require.main.filename));
+		exec('cmd /c "'+script_path+sep+'orsys_menu_add.reg"');
 	}else{
-		exec('cmd /c orsys_menu_remove.reg');
+		exec('cmd /c "'+script_path+sep+'orsys_menu_remove.reg"');
 	}
 }
 
