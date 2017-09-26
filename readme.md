@@ -150,3 +150,4 @@ C:\Work\campaigns>orsys -i contentlibrary\2017
 
 [orsys]: https://github.com/Lukas238/orsys
 [VSCode]: https://code.visualstudio.com/
+[Responsys]: https://www.oracle.com/marketingcloud/products/cross-channel-orchestration/
