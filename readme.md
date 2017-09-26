@@ -78,7 +78,7 @@ Rigth click any htm/html file to open the contextual menu, and click on ```Respo
 
 ### 3. [VSCode] custom task
 
-Confugure a custom task in [VSCode] to launch the current open file in Responsys.
+Configure a custom task in [VSCode] to launch the current open file in Responsys.
 
 Here is an example task file that add the tasks **rsysedit** and **rsysview**.
 ```
