@@ -1,131 +1,149 @@
 # orsys
 
-CLI node app that let you to open an online htm/html file in Responsys editor or view window using a local file as path map.
+Use local htm/html filename and path as a quick shortcut to open the online matching file on the edit or view preview window in [Responsys].
 
-## How to use
+## Options
 
->**Note**: You must be already loggedin in Responsys.
-
-
-### From CLI
-Open a CLI windows in the file folder and run one of the following commands:
-
-- View:
-	```
-	orsys filename.htm
-	```
-- Edit: 
-	```
-	orsys filename.htm -e
-	```
-	
-### From Contextual menu
-Rigth click any htm/html file to open the contextual menu, and click on ```Responsys\Edit``` to open this file responsys online counterpart.
+ Usage: orsys [options] <file>
 
 
-## CLI options
+  Options:
+
+    -e, --edit                        Open the file in the edit windows in Responsys.
+    -b, --browser <browserName>       Define the browser to used to open the file (ex.: "chrome", "firefox").
+    -i, --initialize [ResponsysRoot]  Create a "orsys.json" configuration file in current folder.
+    -a, --win-contextmenu-add         Add the "Responsys" contextual menu. Win only.
+    -r, --win-contextmenu-remove      Remove "Responsys" contextual menu. Win only.
+    -h, --help                        output usage information
 
 
-
-
-```
-Usage: orsys [options] <file>
-
-
-Options:
-
-	-e, --edit                   Open the file in edit an windows in Responsys
-	-b, --browser <browserName>  (optional) the application to be used to open the file (for example, "chrome", "firefox")
-	-h, --help                   output usage information
-```
-
-
-
-## Installation
+## Install
 
 ```
 npm install orsys -g
 ```
+>**Note**: You must install this package globally to be able to use it anywhere from the CLI.
 
->**Note**: You must install this package globally to be able to use it anywhere.
+### Contextual menu (Windows only)
+
+To add or remove the contextual menu in windows, use this commands:
+
+- Add contextual menu
+	```
+	orsys -a
+	```
+- Remove contextual menu
+	```
+	orsys -r
+	```
 
 
 
-### Contextual menu
+## Configuration
 
-On Windows you can optionaly install a contextual menu for htm/html files.
+The tool expect an ```orsys.json``` configuration file, next -or in a parent folder- to the files you want to open in Responsys, with the online path for the the local files you want to open.
 
+Use this command to create the config file:
 ```
-Add contextual menu for htm/html files? (Y/N)
-```
+orsys -i [responsys root folder]
+``` 
+
+> If empty the tool will default to **"contentlibrary"**.
+
+
+## How to use
+
+>**Note**: You must be already loggedin in Responsys in the default browser.
+
+There are tree ways to use [orsys].
+
+### 1. From the command line
+Open a CLI windows in the file folder and run one of the following commands:
+
+- View:
+	```
+	orsys C:\work\filename.htm
+	```
+- Edit: 
+	```
+	orsys -e C:\work\filename.htm
+	```
+	
+### 2. From contextual menu (Windows only)
+
+Rigth click any htm/html file to open the contextual menu, and click on ```Responsys\Edit``` to open this file responsys online counterpart.
 
 ![Contextual menu](docs/contextual_menu.png)
 
 
+### 3. [VSCode] custom task
 
-## Setup
+Confugure a custom task in [VSCode] to launch the current open file in Responsys.
 
-The tool expect a **orsys.json** configuration file next or in a upper folder to the file you want to open.
-
-The config file must have a **root** property with the Responsys root folder you want to map in your local machine.
-
+Here is an example task file that add the tasks **rsysedit** and **rsysview**.
 ```
 {
-	"root" : "[PATH TO RSYS FOLDER]"
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "rsysedit",
+            "type": "shell",
+            "command": "orsys -e ${file}",
+            "presentation": {
+                "reveal": "never"
+            }
+        },
+        {
+            "taskName": "rsysview",
+            "type": "shell",
+            "command": "orsys ${file}",
+            "presentation": {
+                "reveal": "never"
+            }
+        }
+    ]
 }
 ```
 
+## Example use case
 
-### Use Case
+Take as reference this **loca** folders tree:
 
-Take as reference this dummy folders tree:
+```
+C:.
++---Work
+    \---campaigns        
+        +---campaign1
+        |    \---shell.htm
+        +---campaign2
+        |    \---shell.htm
+        \---- campaign3
+            \---shell.htm
+```
 
-#### Responsys dir tree
+And this Responsys **online** folders tree:
+
 ```
 contentlibrary
- \--- 2015
- \--- 2016
- \--- 2017
-		\--- campaign1
-			shell.htm
-		\--- campaign2
-			shell.htm
-		\--- campaign3
-			shell.htm
+    +---2015
+    +---2016
+    \---2017
+        +--- campaign1
+		|    \----shell.htm
+        +---campaign2
+		|    \----shell.htm
+        \---campaign3
+		     \----shell.htm
 ```
 
-#### Local dir tree
-```
-C:
- \--- Work
-       \--- campaigns		
-			\--- campaign1
-				shell.htm
-			\--- campaign2
-				shell.htm
-			\--- campaign3
-				shell.htm
-```
 
-In this example we want to map all the local folders under **C:\Work\campaigns\** to the same name folders under RSYS folder **contentlibrary\2017**.
+We want to map all the local folders under **C:\Work\campaigns\\** relative to the online Responsys path **contentlibrary\2017**.
 
 So, our RSYS _root_ folder will be: **contentlibrary/2017**.
 
-1. Create a **orsys.json** file on **C:\Work\campaigns**.
-2. Add this code:
-	```
-	{
-		"root" : "contentlibrary/2017"
-	}
-	```
-
-3. Now go to the folder **C:\Work\campaigns\campaign1**.
-4. Right click on any htm/html file to open the contextual menu.
-5. Click on **Responsys\Edit**.
-6. A new tab will open on the default browser with the URL: https://interact2.responsys.net/interact/formcab/FileEdit?uid=contentlibrary/2017/campaign1/^shell.htm
-
-
-
-## Requirements
-
-- Node.js 6.11+
+To create the corresponding config file, open a CLI windows on **C:\Work\campaigns** and use this command:
+```
+C:\Work\campaigns>orsys -i contentlibrary\2017
+```
