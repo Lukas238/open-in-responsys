@@ -1,6 +1,6 @@
 {
   "name": "orsys",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CLI node app that let you to open an online htm/html file in Responsys editor or view window using a local file as path map.",
   "keywords": [
     "responsys, node, windows, cli, contextual menu"
@@ -12,7 +12,7 @@
   "engines": {
     "node": ">=6.11.2"
   },
-  "author":{
+  "author": {
     "name": "Lucas Dasso",
     "email": "Dasso.Lucas@c238.com.ar",
     "web": "http://www.C238.com.ar/"
