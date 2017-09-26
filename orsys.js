@@ -94,11 +94,11 @@ function contextMenu(add){
  *  SCRIPT
 */
 program.arguments('<file>')
-	.option('-e, --edit', 'Open the file in the edit windows in Responsys.')
-	.option('-b, --browser <browserName>', 'Define the browser to used to open the file (ex.: "chrome", "firefox").', '')
-	.option('-i, --initialize [ResponsysRoot]', 'Create a "orsys.json" configuration file in current folder.')
-	.option('-a, --win-contextmenu-add', 'Add the "Responsys" contextual menu. Win only.')
-	.option('-r, --win-contextmenu-remove', 'Remove "Responsys" contextual menu. Win only.')
+	.option('-e, --edit', 'Open the file on an edit windows in Responsys.')
+	.option('-b, --browser <browserName>', 'Define the browser to be used to open the file (ex.: "chrome", "firefox").', '')
+	.option('-i, --initialize [ResponsysRoot]', 'Creates the "orsys.json" configuration file in the current folder.')
+	.option('-a, --win-contextmenu-add', 'Add Responsys contextual menu. Win only.')
+	.option('-r, --win-contextmenu-remove', 'Remove Responsys contextual menu. Win only.')
 	.action(function(param_file) {
 		file = param_file;
 		

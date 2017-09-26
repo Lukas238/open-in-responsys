@@ -9,12 +9,12 @@ Use local htm/html filename and path as a quick shortcut to open the online matc
 
   Options:
 
-    -e, --edit                        Open the file in the edit windows in Responsys.
-    -b, --browser <browserName>       Define the browser to used to open the file (ex.: "chrome", "firefox").
-    -i, --initialize [ResponsysRoot]  Create a "orsys.json" configuration file in current folder.
-    -a, --win-contextmenu-add         Add the "Responsys" contextual menu. Win only.
-    -r, --win-contextmenu-remove      Remove "Responsys" contextual menu. Win only.
-    -h, --help                        output usage information
+    -e, --edit                        Open the file on an edit windows in Responsys.
+    -b, --browser <browserName>       Define the browser to be used to open the file (ex.: "chrome", "firefox").
+    -i, --initialize [ResponsysRoot]  Creates "orsys.json" configuration file in the current folder.
+    -a, --win-contextmenu-add         Add Responsys contextual menu. Win only.
+    -r, --win-contextmenu-remove      Remove Responsys contextual menu. Win only.
+    -h, --help                        Output usage information
 
 
 ## Install
@@ -147,3 +147,6 @@ To create the corresponding config file, open a CLI windows on **C:\Work\campaig
 ```
 C:\Work\campaigns>orsys -i contentlibrary\2017
 ```
+
+[orsys]: https://github.com/Lukas238/orsys
+[VSCode]: https://code.visualstudio.com/
